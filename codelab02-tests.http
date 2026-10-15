@@ -1,0 +1,71 @@
+### 1. Verificar las 8 regiones
+GET http://localhost:8080/api/v1/cliente-service/clientes/regiones
+Accept: application/json
+
+###
+
+### 2. Verificar los 12 clientes
+GET http://localhost:8080/api/v1/cliente-service/clientes
+Accept: application/json
+
+###
+
+### 3. Health check (debe mostrar db UP)
+GET http://localhost:8081/actuator/health
+Accept: application/json
+
+###
+
+### 4. Info de la aplicacion
+GET http://localhost:8081/actuator/info
+Accept: application/json
+
+###
+
+### 5. Lista de metricas
+GET http://localhost:8081/actuator/metrics
+Accept: application/json
+
+###
+
+### 6. Memoria JVM usada
+GET http://localhost:8081/actuator/metrics/jvm.memory.used
+Accept: application/json
+
+###
+
+### 7. Conexiones activas de HikariCP
+GET http://localhost:8081/actuator/metrics/hikaricp.connections.active
+Accept: application/json
+
+###
+
+### 8. Conexiones inactivas de HikariCP
+GET http://localhost:8081/actuator/metrics/hikaricp.connections.idle
+Accept: application/json
+
+###
+
+### 9. Endpoints REST registrados
+GET http://localhost:8081/actuator/mappings
+Accept: application/json
+
+###
+
+### 10. Crear un cliente nuevo
+POST http://localhost:8080/api/v1/cliente-service/clientes
+Content-Type: application/json
+
+{
+  "nombre": "Donald",
+  "apellido": "Knuth",
+  "email": "knuth@stanford.edu",
+  "foto": "knuth.jpg",
+  "region": { "id": 3 }
+}
+
+###
+
+### 11. Verificar que ahora hay 13 clientes
+GET http://localhost:8080/api/v1/cliente-service/clientes
+Accept: application/json

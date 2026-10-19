@@ -45,13 +45,12 @@ class IClienteDaoTest {
         em.flush();
     }
 
-    @Test
+        @Test
     @DisplayName("findAllRegiones - devuelve las regiones persistidas")
     void findAllRegiones_debeRetornarListaDeRegiones() {
         List<Region> regiones = clienteDao.findAllRegiones();
 
-        assertThat(regiones).hasSize(1);
-        assertThat(regiones.get(0).getNombre()).isEqualTo("Asia");
+        assertThat(regiones).extracting(Region::getNombre).contains("Asia");
     }
 
     @Test

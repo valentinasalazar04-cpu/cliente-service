@@ -1,0 +1,1 @@
+INSERT INTO regiones (nombre) VALUES ('Suramerica');
